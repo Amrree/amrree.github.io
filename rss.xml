@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PIXELWITCH - Ollama AI & Coding Blog</title>
+    <link>https://amrree.github.io/blogs.html</link>
+    <description>Latest blog posts about Ollama AI, coding, and technology from Pixelwitch</description>
+    <language>en-us</language>
+    <lastBuildDate>2025-05-05T22:38:21+01:00</lastBuildDate>
+    <atom:link href="https://amrree.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Getting Started with Ollama AI</title>
+      <link>https://amrree.github.io/blogs.html#ollama-start</link>
+      <description>An introduction to Ollama's AI platform, setup guide, and first steps to build your own AI models.</description>
+      <pubDate>2025-05-05T22:38:21+01:00</pubDate>
+      <guid>https://amrree.github.io/blogs.html#ollama-start</guid>
+      <category>Ollama AI</category>
+    </item>
+
+    <item>
+      <title>Integrating Ollama with Python</title>
+      <link>https://amrree.github.io/blogs.html#python-integration</link>
+      <description>Learn how to connect Ollama AI with Python applications for powerful AI-driven features.</description>
+      <pubDate>2025-05-05T22:38:21+01:00</pubDate>
+      <guid>https://amrree.github.io/blogs.html#python-integration</guid>
+      <category>Python</category>
+      <category>Ollama AI</category>
+    </item>
+
+    <item>
+      <title>Building Chatbots with Ollama</title>
+      <link>https://amrree.github.io/blogs.html#chatbot-guide</link>
+      <description>Step-by-step guide to creating intelligent chatbots using Ollama's AI framework.</description>
+      <pubDate>2025-05-05T22:38:21+01:00</pubDate>
+      <guid>https://amrree.github.io/blogs.html#chatbot-guide</guid>
+      <category>Ollama AI</category>
+      <category>Chatbots</category>
+    </item>
+
+    <item>
+      <title>Data Analysis with Python & Ollama</title>
+      <link>https://amrree.github.io/blogs.html#data-analysis</link>
+      <description>Explore how to combine Python's data tools with Ollama AI for insightful data analysis.</description>
+      <pubDate>2025-05-05T22:38:21+01:00</pubDate>
+      <guid>https://amrree.github.io/blogs.html#data-analysis</guid>
+      <category>Python</category>
+      <category>Data Analysis</category>
+      <category>Ollama AI</category>
+    </item>
+  </channel>
+</rss>

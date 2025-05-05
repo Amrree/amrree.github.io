@@ -1,0 +1,241 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   PIXELWITCH - Art Category
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: default;
+      box-shadow: 0 0 8px #a3a0f6;
+      padding: 2rem 2.5rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    .page-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #6b5b95;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .art-card {
+      background: white;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .art-card:hover {
+      box-shadow: 0 0 20px #6b5b95cc;
+    }
+    .art-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #a3a0f6;
+    }
+    .art-content {
+      padding: 1rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .art-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #6b5b95;
+      margin-bottom: 0.5rem;
+    }
+    .art-description {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: #4b4b6a;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+    .read-more-btn {
+      align-self: flex-start;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+      text-decoration: none;
+      user-select: none;
+    }
+    .read-more-btn:hover {
+      background-color: #a3a0f6;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+  </style>
+ </head>
+ <body>
+  <main>
+   <h1 class="page-title">
+    Art Category
+   </h1>
+   <section class="pastel-overlay">
+    <p>
+     Welcome to the Art category! Here you will find a curated collection of digital and traditional art tutorials, galleries, and inspiration to fuel your creativity.
+    </p>
+    <div class="grid-container">
+     <article aria-label="Art post titled 'Digital Dreams'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Digital Dreams artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/358094f6-4380-4536-f042-4aec686e1522.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Digital Dreams
+       </h2>
+       <p class="art-description">
+        Explore the surreal world of digital painting with this step-by-step tutorial on creating dreamy landscapes.
+       </p>
+       <a aria-label="Read more about Digital Dreams" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Art post titled 'Watercolor Wonders'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Watercolor Wonders artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/b8c13867-03d9-44d9-f08e-7bee017ada3f.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Watercolor Wonders
+       </h2>
+       <p class="art-description">
+        Discover techniques to master watercolor painting and create stunning floral compositions.
+       </p>
+       <a aria-label="Read more about Watercolor Wonders" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Art post titled 'Sketchbook Secrets'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Sketchbook Secrets artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/443ef9cf-a12d-4ff9-27b4-d4017813fe36.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Sketchbook Secrets
+       </h2>
+       <p class="art-description">
+        Learn how to keep a creative sketchbook and develop your drawing skills with daily exercises.
+       </p>
+       <a aria-label="Read more about Sketchbook Secrets" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Art post titled 'Color Theory Basics'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Color Theory Basics artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/7ae112a5-acb4-407e-9183-ab35cee220b4.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Color Theory Basics
+       </h2>
+       <p class="art-description">
+        Understand the fundamentals of color theory and how to apply it to your artwork for maximum impact.
+       </p>
+       <a aria-label="Read more about Color Theory Basics" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Art post titled 'Character Design Tips'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Character Design Tips artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/6204e8e6-f05e-457d-20ea-cd5c44bf4d9c.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Character Design Tips
+       </h2>
+       <p class="art-description">
+        Get creative with character design using these tips to bring your characters to life.
+       </p>
+       <a aria-label="Read more about Character Design Tips" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Art post titled 'Mixed Media Magic'" class="art-card" tabindex="0">
+      <img alt="Placeholder image for Mixed Media Magic artwork" class="art-image" height="180" src="https://storage.googleapis.com/a1aa/image/81578103-4e3b-4eb8-9d45-ed11a4079b55.jpg" width="400"/>
+      <div class="art-content">
+       <h2 class="art-title">
+        Mixed Media Magic
+       </h2>
+       <p class="art-description">
+        Explore the exciting world of mixed media art and how to combine different materials for unique effects.
+       </p>
+       <a aria-label="Read more about Mixed Media Magic" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+    </div>
+   </section>
+  </main>
+ </body>
+</html>

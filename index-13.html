@@ -1,0 +1,342 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>PIXELWITCH - Vibe Coding Quiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    .pastel-overlay:hover {
+      background-color: #a3a0f6;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+    .page-break {
+      height: 8px;
+      margin: 3rem 0;
+      border-radius: 9999px;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      animation: movePattern 25s linear infinite;
+      border: 2px solid #a3a0f6;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    button, .btn-link {
+      @apply pastel-overlay px-5 py-3 text-sm rounded-lg;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      user-select: none;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #a3a0f6aa;
+      padding-bottom: 3rem;
+    }
+    .quiz-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #6b5b95;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .question {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      color: #4b4b6a;
+    }
+    .answers {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 2rem;
+    }
+    .answers li {
+      margin-bottom: 0.5rem;
+    }
+    .answers label {
+      cursor: pointer;
+      display: block;
+      padding: 0.5rem 1rem;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: 'Roboto Mono', monospace;
+      color: #4b4b6a;
+    }
+    .answers input[type="radio"] {
+      display: none;
+    }
+    .answers input[type="radio"]:checked + label {
+      background-color: #a3a0f6;
+      color: #2a2a4a;
+      border-color: #6b5b95;
+      box-shadow: 0 0 10px #6b5b95;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    .result {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: #6b5b95;
+      margin-top: 2rem;
+      text-align: center;
+      min-height: 4rem;
+    }
+    a.result-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      color: #4b4b6a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      text-decoration: none;
+      box-shadow: 0 0 8px #a3a0f6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a.result-link:hover {
+      background-color: #a3a0f6;
+      color: #2a2a4a;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+    }
+  </style>
+ </head>
+ <body>
+  <main>
+   <h1 class="quiz-title">What Type of VibeCoder Are You?</h1>
+   <form id="vibeQuiz" aria-label="VibeCoder personality quiz">
+    <!-- Question 1 -->
+    <div class="question-block mb-6">
+     <p class="question">1. When you start a new coding project, what is your approach?</p>
+     <ul class="answers">
+      <li>
+       <input type="radio" id="q1a1" name="q1" value="1" required/>
+       <label for="q1a1">Plan everything in detail before coding</label>
+      </li>
+      <li>
+       <input type="radio" id="q1a2" name="q1" value="2"/>
+       <label for="q1a2">Jump right in and figure it out as you go</label>
+      </li>
+      <li>
+       <input type="radio" id="q1a3" name="q1" value="3"/>
+       <label for="q1a3">Focus on making it elegant and efficient</label>
+      </li>
+      <li>
+       <input type="radio" id="q1a4" name="q1" value="4"/>
+       <label for="q1a4">Collaborate and get feedback early</label>
+      </li>
+     </ul>
+    </div>
+    <!-- Question 2 -->
+    <div class="question-block mb-6">
+     <p class="question">2. What motivates you most when coding?</p>
+     <ul class="answers">
+      <li>
+       <input type="radio" id="q2a1" name="q2" value="1" required/>
+       <label for="q2a1">Solving complex problems</label>
+      </li>
+      <li>
+       <input type="radio" id="q2a2" name="q2" value="2"/>
+       <label for="q2a2">Creating something new and innovative</label>
+      </li>
+      <li>
+       <input type="radio" id="q2a3" name="q2" value="3"/>
+       <label for="q2a3">Helping others with your code</label>
+      </li>
+      <li>
+       <input type="radio" id="q2a4" name="q2" value="4"/>
+       <label for="q2a4">Mastering the latest technologies</label>
+      </li>
+     </ul>
+    </div>
+    <!-- Question 3 -->
+    <div class="question-block mb-6">
+     <p class="question">3. How do you handle bugs and errors?</p>
+     <ul class="answers">
+      <li>
+       <input type="radio" id="q3a1" name="q3" value="1" required/>
+       <label for="q3a1">Systematically debug step-by-step</label>
+      </li>
+      <li>
+       <input type="radio" id="q3a2" name="q3" value="2"/>
+       <label for="q3a2">Try creative workarounds</label>
+      </li>
+      <li>
+       <input type="radio" id="q3a3" name="q3" value="3"/>
+       <label for="q3a3">Ask for help or collaborate</label>
+      </li>
+      <li>
+       <input type="radio" id="q3a4" name="q3" value="4"/>
+       <label for="q3a4">Use automated tools and tests</label>
+      </li>
+     </ul>
+    </div>
+    <!-- Question 4 -->
+    <div class="question-block mb-6">
+     <p class="question">4. What best describes your coding style?</p>
+     <ul class="answers">
+      <li>
+       <input type="radio" id="q4a1" name="q4" value="1" required/>
+       <label for="q4a1">Structured and organized</label>
+      </li>
+      <li>
+       <input type="radio" id="q4a2" name="q4" value="2"/>
+       <label for="q4a2">Experimental and flexible</label>
+      </li>
+      <li>
+       <input type="radio" id="q4a3" name="q4" value="3"/>
+       <label for="q4a3">Clean and readable</label>
+      </li>
+      <li>
+       <input type="radio" id="q4a4" name="q4" value="4"/>
+       <label for="q4a4">Collaborative and communicative</label>
+      </li>
+     </ul>
+    </div>
+    <!-- Question 5 -->
+    <div class="question-block mb-6">
+     <p class="question">5. What do you value most in a coding community?</p>
+     <ul class="answers">
+      <li>
+       <input type="radio" id="q5a1" name="q5" value="1" required/>
+       <label for="q5a1">Knowledge sharing and mentorship</label>
+      </li>
+      <li>
+       <input type="radio" id="q5a2" name="q5" value="2"/>
+       <label for="q5a2">Innovation and pushing boundaries</label>
+      </li>
+      <li>
+       <input type="radio" id="q5a3" name="q5" value="3"/>
+       <label for="q5a3">Support and encouragement</label>
+      </li>
+      <li>
+       <input type="radio" id="q5a4" name="q5" value="4"/>
+       <label for="q5a4">Diversity and collaboration</label>
+      </li>
+     </ul>
+    </div>
+    <div class="btn-container">
+     <button type="submit" class="pastel-overlay">Find My VibeCoder Type</button>
+    </div>
+   </form>
+   <div class="result" id="result"></div>
+  </main>
+  <script>
+   // Enneagram types mapping (9 types)
+   // We'll map answers 1-4 to 9 types by a simple scoring system
+   // Each answer value corresponds to a group of types, we sum and mod 9 to pick type
+   // For simplicity, assign each answer a score 1-4, sum all, mod 9 + 1 = type 1-9
+
+   const quizForm = document.getElementById('vibeQuiz');
+   const resultDiv = document.getElementById('result');
+
+   const enneagramPages = {
+     1: 'enneagram-type-1.html',
+     2: 'enneagram-type-2.html',
+     3: 'enneagram-type-3.html',
+     4: 'enneagram-type-4.html',
+     5: 'enneagram-type-5.html',
+     6: 'enneagram-type-6.html',
+     7: 'enneagram-type-7.html',
+     8: 'enneagram-type-8.html',
+     9: 'enneagram-type-9.html'
+   };
+
+   const enneagramDescriptions = {
+     1: "Type 1: The Reformer - Principled, purposeful, self-controlled.",
+     2: "Type 2: The Helper - Caring, interpersonal, generous.",
+     3: "Type 3: The Achiever - Success-oriented, adaptable, driven.",
+     4: "Type 4: The Individualist - Sensitive, introspective, expressive.",
+     5: "Type 5: The Investigator - Perceptive, innovative, secretive.",
+     6: "Type 6: The Loyalist - Committed, security-oriented, responsible.",
+     7: "Type 7: The Enthusiast - Spontaneous, versatile, acquisitive.",
+     8: "Type 8: The Challenger - Self-confident, decisive, protective.",
+     9: "Type 9: The Peacemaker - Easygoing, receptive, reassuring."
+   };
+
+   quizForm.addEventListener('submit', function(e) {
+     e.preventDefault();
+     const formData = new FormData(quizForm);
+     let totalScore = 0;
+     for (let [key, value] of formData.entries()) {
+       totalScore += parseInt(value);
+     }
+     // Map totalScore to 1-9
+     let typeNum = ((totalScore - 1) % 9) + 1;
+     // Show result with link
+     const pageLink = enneagramPages[typeNum];
+     const description = enneagramDescriptions[typeNum];
+     resultDiv.innerHTML = `
+       <p>${description}</p>
+       <a href="${pageLink}" class="result-link" aria-label="Go to your VibeCoder type page">Discover Your VibeCoder Type</a>
+     `;
+     // Scroll to result
+     resultDiv.scrollIntoView({behavior: 'smooth'});
+   });
+  </script>
+ </body>
+</html>

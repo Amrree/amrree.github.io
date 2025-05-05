@@ -1,0 +1,256 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>PIXELWITCH - Ollama AI &amp; Coding Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: default;
+      box-shadow: 0 0 8px #a3a0f6;
+      padding: 2rem 2.5rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    .page-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #6b5b95;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .post-card {
+      background: white;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      padding: 1rem;
+    }
+    .post-card:hover {
+      box-shadow: 0 0 20px #6b5b95cc;
+    }
+    .post-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+    .post-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #6b5b95;
+      margin-bottom: 0.5rem;
+    }
+    .post-excerpt {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: #4b4b6a;
+      margin-bottom: 1rem;
+    }
+    .read-more-btn {
+      align-self: flex-start;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+      text-decoration: none;
+      user-select: none;
+    }
+    .read-more-btn:hover {
+      background-color: #a3a0f6;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .widget {
+      background: #e6d9ffcc;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      color: #4b4b6a;
+      font-family: 'Roboto Mono', monospace;
+    }
+    .widget h5 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #6b5b95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .widget p, .widget ul {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: #4b4b6a;
+      margin: 0;
+    }
+    .widget ul {
+      list-style: disc inside;
+      margin-top: 0.5rem;
+    }
+    .widget ul li {
+      margin-bottom: 0.5rem;
+    }
+    .rss-feed {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #6b5b95;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .rss-feed:hover {
+      color: #4a3a7a;
+    }
+    .rss-icon {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+  </style>
+ </head>
+ <body>
+  <main>
+   <h1 class="page-title">Ollama AI &amp; Coding Blog</h1>
+   <div class="grid-container">
+    <section class="posts-list" aria-label="Latest blog posts">
+     <article class="post-card" tabindex="0" id="ollama-start">
+      <img alt="Ollama AI interface on computer screen" class="post-image" height="200" src="https://storage.googleapis.com/a1aa/image/ollama-ai-interface.jpg" width="400"/>
+      <h2 class="post-title">Getting Started with Ollama AI</h2>
+      <p class="post-excerpt">An introduction to Ollama’s AI platform, setup guide, and first steps to build your own AI models.</p>
+      <a href="#" class="read-more-btn" aria-label="Read more about Getting Started with Ollama AI">Read Details</a>
+     </article>
+     <article class="post-card" tabindex="0" id="ollama-start">
+      <img alt="Python code on screen with Ollama AI integration" class="post-image" height="200" src="https://storage.googleapis.com/a1aa/image/python-ollama-integration.jpg" width="400"/>
+      <h2 class="post-title">Integrating Ollama with Python</h2>
+      <p class="post-excerpt">Learn how to connect Ollama AI with Python applications for powerful AI-driven features.</p>
+      <a href="#" class="read-more-btn" aria-label="Read more about Integrating Ollama with Python">Read Details</a>
+     </article>
+     <article class="post-card" tabindex="0" id="ollama-start">
+      <img alt="AI chatbot powered by Ollama" class="post-image" height="200" src="https://storage.googleapis.com/a1aa/image/ollama-chatbot.jpg" width="400"/>
+      <h2 class="post-title">Building Chatbots with Ollama</h2>
+      <p class="post-excerpt">Step-by-step guide to creating intelligent chatbots using Ollama’s AI framework.</p>
+      <a href="#" class="read-more-btn" aria-label="Read more about Building Chatbots with Ollama">Read Details</a>
+     </article>
+     <article class="post-card" tabindex="0" id="ollama-start">
+      <img alt="Data visualization with Python and Ollama" class="post-image" height="200" src="https://storage.googleapis.com/a1aa/image/python-data-ollama.jpg" width="400"/>
+      <h2 class="post-title">Data Analysis with Python &amp; Ollama</h2>
+      <p class="post-excerpt">Explore how to combine Python’s data tools with Ollama AI for insightful data analysis.</p>
+      <a href="#" class="read-more-btn" aria-label="Read more about Data Analysis with Python & Ollama">Read Details</a>
+     </article>
+    </section>
+    <aside aria-label="Sidebar widgets">
+     <div class="widget" role="region" aria-labelledby="ai-trends-title">
+      <h5 id="ai-trends-title">AI Trends</h5>
+      <p>Stay updated on the latest Ollama AI breakthroughs, tools, and applications transforming industries worldwide.</p>
+     </div>
+     <div class="widget" role="region" aria-labelledby="coding-tips-title">
+      <h5 id="coding-tips-title">Coding Tips</h5>
+      <ul>
+       <li>Write clean, readable Python code</li>
+       <li>Use version control (Git) for your projects</li>
+       <li>Test your AI models thoroughly</li>
+       <li>Keep learning new AI frameworks and libraries</li>
+      </ul>
+     </div>
+     <div class="widget" role="region" aria-labelledby="newsletter-title">
+      <h5 id="newsletter-title">Newsletter</h5>
+      <p>Subscribe to get the latest Ollama AI and coding insights delivered to your inbox weekly.</p>
+     </div>
+     <div class="widget" role="region" aria-labelledby="rss-feed-title">
+      <h5 id="rss-feed-title">RSS Feed</h5>
+      <a href="/rss.xml" class="rss-feed" aria-label="Subscribe to RSS feed">
+       <svg class="rss-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4.18 15.82a2.18 2.18 0 1 0 0 4.36 2.18 2.18 0 0 0 0-4.36zm0-4.36a6.54 6.54 0 0 1 6.54 6.54h3.27a9.81 9.81 0 0 0-9.81-9.81v3.27zm0-4.36a11.1 11.1 0 0 1 11.1 11.1h3.27a14.37 14.37 0 0 0-14.37-14.37v3.27z"/>
+       </svg>
+       Subscribe via RSS
+      </a>
+     </div>
+    </aside>
+   </div>
+  </main>
+ </body>
+</html>

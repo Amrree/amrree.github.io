@@ -1,0 +1,721 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>PIXELWITCH - amrree.github.io</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      background-color: #fff4cc;
+    }
+    .font-montserrat {
+      font-family: "Montserrat", sans-serif;
+    }
+    .text-shadow {
+      text-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+    }
+  </style>
+   /* Fonts */
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow:
+        1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    /* Border color */
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    /* Pastel overlay pattern for buttons and page breaks */
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    .pastel-overlay:hover {
+      background-color: #a3a0f6;
+      box-shadow:
+        0 0 15px #6b5b95,
+        0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+    /* Page break with pastel overlay */
+    .page-break {
+      height: 8px;
+      margin: 3rem 0;
+      border-radius: 9999px;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      animation: movePattern 25s linear infinite;
+      border: 2px solid #a3a0f6;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    /* Animations */
+    @keyframes movePattern {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 40px 40px;
+      }
+    }
+    /* Buttons base style */
+    button, .btn-link {
+      @apply pastel-overlay px-5 py-3 text-sm rounded-lg;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      user-select: none;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    /* Navigation dropdown styling */
+    nav ul li > ul {
+      background: #e6d9ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      box-shadow:
+        0 0 15px rgba(107, 91, 149, 0.3);
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #4b4b6a;
+    }
+    nav ul li > ul li a {
+      color: #4b4b6a;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li > ul li a:hover {
+      background-color: #a3a0f6;
+      color: #2a2a4a;
+    }
+    /* Scrollbar for mobile menu */
+    #mobile-menu {
+      scrollbar-width: thin;
+      scrollbar-color: #a3a0f6 #e6d9ff;
+    }
+    #mobile-menu::-webkit-scrollbar {
+      width: 8px;
+    }
+    #mobile-menu::-webkit-scrollbar-track {
+      background: #e6d9ff;
+    }
+    #mobile-menu::-webkit-scrollbar-thumb {
+      background-color: #a3a0f6;
+      border-radius: 10px;
+      border: 2px solid #e6d9ff;
+    }
+    /* Link styles */
+    a {
+      color: #6b5b95;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4a3a7a;
+      text-decoration: underline;
+    }
+    /* Widget container */
+    .widget {
+      background: #e6d9ffcc;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      color: #4b4b6a;
+      font-family: 'Roboto Mono', monospace;
+      margin-bottom: 1.5rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .widget:hover {
+      box-shadow: 0 0 20px #6b5b95cc;
+    }
+    .widget h5 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #6b5b95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    /* Widget list */
+    .widget ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .widget ul li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #a3a0f6aa;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .widget ul li:last-child {
+      border-bottom: none;
+    }
+    .widget ul li:hover {
+      color: #4a3a7a;
+    }
+  </style>
+ </head>
+ <body class="bg-gradient-to-tr from-[#d9e8ff] to-[#e6d9ff] min-h-screen text-[#4b4b6a]">
+  <!-- Top Bar -->
+  <header class="max-w-[1200px] mx-auto p-4 flex flex-wrap justify-between items-center border-b border-black bg-[#fff4cc]">
+    <a href="/subscribe.html" class="flex items-center gap-2 bg-[#f0c36d] border border-black text-black font-montserrat font-bold text-xs rounded-md py-2 px-4 hover:bg-yellow-400 transition">
+      <i class="fas fa-envelope"></i> SUBSCRIBE
+    </a>
+    <a href="vibecoder.html" class="flex items-center gap-2 bg-[#f0c36d] border border-black text-black font-montserrat font-bold text-xs rounded-md py-2 px-4 hover:bg-yellow-400 transition">
+      <i class="fas fa-laptop-code"></i> VIBE CODER
+    </a>
+    <a href="/" class="text-center mx-auto sm:mx-0">
+      <h1 class="font-montserrat font-extrabold text-[28px] text-[#d9b25a] text-shadow leading-none tracking-wider">PIXELWITCH</h1>
+      <p class="text-[8px] font-bold tracking-widest text-black uppercase -mt-1">amrree.github.io</p>
+    </a>
+    <nav class="flex gap-3">
+      <a href="/search.html" aria-label="Search" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs hover:bg-yellow-400 transition">
+        <i class="fas fa-search"></i>
+      </a>
+      <a href="/buy-me-a-coffee.html" aria-label="Buy me a coffee" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs hover:bg-yellow-400 transition">
+        <i class="fas fa-coffee"></i>
+      </a>
+      <button id="mobile-menu-button" aria-label="Menu" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs hover:bg-yellow-400 transition md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+     amrree.github.io
+    </p>
+   </div>
+   <nav class="flex gap-4 text-[#4b4b6a] text-base relative z-10">
+    <button aria-label="Search" class="pastel-overlay rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#a3a0f6] transition">
+     <i class="fas fa-search">
+     </i>
+    </button>
+    <button aria-label="Buy me a coffee" class="pastel-overlay rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#a3a0f6] transition">
+     <i class="fas fa-coffee">
+     </i>
+    </button>
+    <button aria-label="Menu" class="pastel-overlay rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#a3a0f6] transition" id="mobile-menu-button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+   </nav>
+  </header>
+  <!-- Navigation Menu -->
+  <nav class="max-w-[1200px] mx-auto border-b border-pastel bg-gradient-to-r from-[#d9e8ff] to-[#e6d9ff] hidden md:flex justify-center py-3 px-6 font-orbitron font-bold text-sm tracking-wide select-none relative z-10" id="main-nav">
+   <ul class="flex gap-8">
+    <li class="relative group cursor-pointer">
+     HOME
+     <i class="fas fa-caret-down text-sm ml-1">
+     </i>
+     <ul class="absolute left-0 top-full bg-[#e6d9ff] border border-pastel rounded-lg mt-1 hidden group-hover:block min-w-[160px] z-20 font-roboto-mono font-semibold tracking-wide text-[#4b4b6a]">
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="index.html">
+        Home 1
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="prev-post.html">
+        Prev Post
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="next-post.html">
+        Next Post
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li class="relative group cursor-pointer">
+     POST TYPE
+     <i class="fas fa-caret-down text-sm ml-1">
+     </i>
+     <ul class="absolute left-0 top-full bg-[#e6d9ff] border border-pastel rounded-lg mt-1 hidden group-hover:block min-w-[160px] z-20 font-roboto-mono font-semibold tracking-wide text-[#4b4b6a]">
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="post-type.html">
+        Post Type 1
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="post-details.html">
+        Post Details
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li class="relative group cursor-pointer">
+     CATEGORIES
+     <i class="fas fa-caret-down text-sm ml-1">
+     </i>
+     <ul class="absolute left-0 top-full bg-[#e6d9ff] border border-pastel rounded-lg mt-1 hidden group-hover:block min-w-[160px] z-20 font-roboto-mono font-semibold tracking-wide text-[#4b4b6a]">
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="categories/art.html">
+        Art
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="categories/code.html">
+        Code
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="categories/writing.html">
+        Writing
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="categories/ai.html">
+        AI
+       </a>
+      </li>
+      <li>
+       <a class="block px-5 py-3 hover:bg-[#a3a0f6]" href="categories/blog.html">
+        Blog
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <a class="hover:underline font-roboto-mono font-semibold text-[#6b5b95]" href="buy-me-a-coffee.html">
+      BUY ME A COFFEE
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline font-roboto-mono font-semibold text-[#6b5b95]" href="contact.html">
+      CONTACT ME
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline font-roboto-mono font-semibold text-[#6b5b95]" href="bio.html">
+      BIO
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline font-roboto-mono font-semibold text-[#6b5b95]" href="blog.html">
+      BLOG
+     </a>
+    </li>
+   </ul>
+  </nav>
+  <!-- Mobile Menu -->
+  <!-- Navigation Menu -->
+  <nav id="desktop-menu" class="max-w-[1200px] mx-auto border-b border-black bg-[#fff4cc] hidden md:flex justify-start gap-6 font-bold text-xs p-3">
+    <div class="relative group">
+      <a href="/" class="flex items-center gap-1 hover:text-yellow-400">HOME <i class="fas fa-caret-down text-[10px]"></i></a>
+      <div class="absolute left-0 top-full bg-white border border-black rounded shadow-lg mt-1 hidden group-hover:block min-w-[150px] z-10">
+        <a href="/" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Home 1</a>
+        <a href="/index2.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Home 2</a>
+      </div>
+    </div>
+    <div class="relative group">
+      <a href="/post-type.html" class="flex items-center gap-1 hover:text-yellow-400">POST TYPE <i class="fas fa-caret-down text-[10px]"></i></a>
+      <div class="absolute left-0 top-full bg-white border border-black rounded shadow-lg mt-1 hidden group-hover:block min-w-[150px] z-10">
+        <a href="/post-type/tutorial.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Tutorial</a>
+        <a href="/post-type/opinion.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Opinion</a>
+      </div>
+    </div>
+    <div class="relative group">
+      <a href="/categories.html" class="flex items-center gap-1 hover:text-yellow-400">CATEGORIES <i class="fas fa-caret-down text-[10px]"></i></a>
+      <div class="absolute left-0 top-full bg-white border border-black rounded shadow-lg mt-1 hidden group-hover:block min-w-[150px] z-10">
+        <a href="/categories/art.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Art</a>
+        <a href="/categories/code.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Code</a>
+        <a href="/categories/writing.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Writing</a>
+        <a href="/categories/ai.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">AI</a>
+        <a href="/categories/blog.html" class="block px-4 py-2 text-black hover:bg-[#f0c36d]">Blog</a>
+      </div>
+    </div>
+    <a href="/buy-me-a-coffee.html" class="hover:text-yellow-400">BUY ME A COFFEE</a>
+    <a href="/contact.html" class="hover:text-yellow-400">CONTACT ME</a>
+    <a href="/bio.html" class="hover:text-yellow-400">BIO</a>
+    <a href="/blog.html" class="hover:text-yellow-400">BLOG</a>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="max-w-[1200px] mx-auto border-b border-black bg-[#fff4cc] p-4 hidden md:hidden">
+    <ul class="space-y-2 font-bold text-xs">
+      <li>
+        <button class="w-full flex justify-between items-center" data-toggle="submenu-home">
+          HOME <i class="fas fa-caret-down text-[10px]"></i>
+        </button>
+        <ul id="submenu-home" class="hidden pl-4 mt-1 space-y-1 border-l border-black">
+          <li><a href="/" class="block hover:text-yellow-400">Home 1</a></li>
+          <li><a href="/index2.html" class="block hover:text-yellow-400">Home 2</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="w-full flex justify-between items-center" data-toggle="submenu-posttype">
+          POST TYPE <i class="fas fa-caret-down text-[10px]"></i>
+        </button>
+        <ul id="submenu-posttype" class="hidden pl-4 mt-1 space-y-1 border-l border-black">
+          <li><a href="/post-type/tutorial.html" class="block hover:text-yellow-400">Tutorial</a></li>
+          <li><a href="/post-type/opinion.html" class="block hover:text-yellow-400">Opinion</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="w-full flex justify-between items-center" data-toggle="submenu-categories">
+          CATEGORIES <i class="fas fa-caret-down text-[10px]"></i>
+        </button>
+        <ul id="submenu-categories" class="hidden pl-4 mt-1 space-y-1 border-l border-black">
+          <li><a href="/categories/art.html" class="block hover:text-yellow-400">Art</a></li>
+          <li><a href="/categories/code.html" class="block hover:text-yellow-400">Code</a></li>
+          <li><a href="/categories/writing.html" class="block hover:text-yellow-400">Writing</a></li>
+          <li><a href="/categories/ai.html" class="block hover:text-yellow-400">AI</a></li>
+          <li><a href="/categories/blog.html" class="block hover:text-yellow-400">Blog</a></li>
+        </ul>
+      </li>
+      <li><a href="/buy-me-a-coffee.html" class="block hover:text-yellow-400">BUY ME A COFFEE</a></li>
+      <li><a href="/contact.html" class="block hover:text-yellow-400">CONTACT ME</a></li>
+      <li><a href="/bio.html" class="block hover:text-yellow-400">BIO</a></li>
+      <li><a href="/blog.html" class="block hover:text-yellow-400">BLOG</a></li>
+    </ul>
+  </nav>
+    <li>
+     <details>
+      <summary class="cursor-pointer flex justify-between items-center text-lg">
+       HOME
+       <i class="fas fa-caret-down text-sm ml-1">
+       </i>
+      </summary>
+      <ul class="pl-6 mt-3 flex flex-col gap-3 text-base">
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="index.html">
+         Home 1
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="prev-post.html">
+         Prev Post
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="next-post.html">
+         Next Post
+        </a>
+       </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary class="cursor-pointer flex justify-between items-center text-lg">
+       POST TYPE
+       <i class="fas fa-caret-down text-sm ml-1">
+       </i>
+      </summary>
+      <ul class="pl-6 mt-3 flex flex-col gap-3 text-base">
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="post-type.html">
+         Post Type 1
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="post-details.html">
+         Post Details
+        </a>
+       </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <details>
+      <summary class="cursor-pointer flex justify-between items-center text-lg">
+       CATEGORIES
+       <i class="fas fa-caret-down text-sm ml-1">
+       </i>
+      </summary>
+      <ul class="pl-6 mt-3 flex flex-col gap-3 text-base">
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="categories/art.html">
+         Art
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="categories/code.html">
+         Code
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="categories/writing.html">
+         Writing
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="categories/ai.html">
+         AI
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-[#4a3a7a]" href="categories/blog.html">
+         Blog
+        </a>
+       </li>
+      </ul>
+     </details>
+    </li>
+    <li>
+     <a class="hover:text-[#4a3a7a]" href="buy-me-a-coffee.html">
+      BUY ME A COFFEE
+     </a>
+    </li>
+    <li>
+     <a class="hover:text-[#4a3a7a]" href="contact.html">
+      CONTACT ME
+     </a>
+    </li>
+    <li>
+     <a class="hover:text-[#4a3a7a]" href="bio.html">
+      BIO
+     </a>
+    </li>
+    <li>
+     <a class="hover:text-[#4a3a7a]" href="blog.html">
+      BLOG
+     </a>
+    </li>
+   </ul>
+  </nav>
+  <!-- Hero Section -->
+  <section class="max-w-[1200px] mx-auto mt-8 relative rounded-2xl overflow-hidden border-4 border-pastel bg-white shadow-lg">
+   <img alt="Pastel light blue and purple spring day with soft clouds and flowers" class="w-full object-cover rounded-2xl opacity-90" height="400" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200"/>
+   <div class="absolute inset-0 bg-gradient-to-t from-white/80 via-white/40 to-transparent flex flex-col justify-center items-center p-8 text-center text-[#6b5b95]">
+    <h2 class="font-orbitron font-extrabold text-4xl sm:text-5xl mb-4 tracking-wide drop-shadow-md">
+     Welcome to PIXELWITCH
+    </h2>
+    <p class="max-w-3xl text-xl font-roboto-mono tracking-wide">
+     A marvelous personal blog theme with pastel blue and purple accents and modern design.
+    </p>
+   </div>
+  </section>
+  <div class="page-break mx-auto max-w-[1200px] mt-16"></div>
+  <!-- Categories Strip -->
+  <section class="max-w-[1200px] mx-auto mt-8 bg-[#b3c7ff] rounded-2xl border-4 border-pastel py-6 px-6 flex justify-between gap-4 overflow-x-auto relative z-10 shadow-md">
+   <!-- Example category card -->
+   <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+    <img alt="Category art image placeholder" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+    <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+     ART
+     <p class="font-roboto-mono font-normal text-xs mt-1">
+      54 ARTICLES
+     </p>
+    </div>
+   </div>
+   <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+    <img alt="Category code image placeholder" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/d0788409-6fe8-4331-a934-6afb68db05e1.jpg" width="56"/>
+    <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+     CODE
+     <p class="font-roboto-mono font-normal text-xs mt-1">
+      54 ARTICLES
+     </p>
+    </div>
+   </div>
+   <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+    <img alt="Category writing image placeholder" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/a277e3ff-f568-4b4c-16aa-85fec52b0e9b.jpg" width="56"/>
+    <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+     WRITING
+     <p class="font-roboto-mono font-normal text-xs mt-1">
+      54 ARTICLES
+     </p>
+    </div>
+   </div>
+   <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+    <img alt="Category AI image placeholder" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/1c3be931-9755-47c2-9323-83eca11e3d6c.jpg" width="56"/>
+    <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+     AI
+     <p class="font-roboto-mono font-normal text-xs mt-1">
+      54 ARTICLES
+     </p>
+    </div>
+   </div>
+   <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+    <img alt="Category blog image placeholder" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/536282d7-a08c-40a5-7fb2-91384d91c1ce.jpg" width="56"/>
+    <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+     BLOG
+     <p class="font-roboto-mono font-normal text-xs mt-1">
+      54 ARTICLES
+     </p>
+    </div>
+   </div>
+  </section>
+  <div class="page-break mx-auto max-w-[1200px] mt-16"></div>
+  <!-- Main Content Grid -->
+  <section class="max-w-[1200px] mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+   <!-- Posts Column -->
+   <div class="md:col-span-2 flex flex-col gap-8">
+    <!-- Post Card -->
+    <article class="bg-white border-4 border-pastel rounded-2xl p-6 shadow-lg hover:shadow-xl transition pastel-overlay cursor-pointer">
+     <img alt="Latest post image placeholder" class="rounded-2xl border-2 border-pastel object-cover w-full h-56 mb-4" height="224" src="https://storage.googleapis.com/a1aa/image/c8214622-d05e-4e6a-a4db-8fac5b6a9ce5.jpg" width="400"/>
+     <h3 class="font-orbitron font-extrabold text-2xl tracking-wide mb-2 text-[#6b5b95]">
+      Post Title Example
+     </h3>
+     <p class="text-[#4b4b6a] text-base font-roboto-mono tracking-wide mb-4">
+      A short excerpt or description of the post content goes here.
+     </p>
+     <button class="pastel-overlay self-start hover:bg-[#a3a0f6] transition">
+      READ DETAILS
+     </button>
+    </article>
+    <article class="bg-white border-4 border-pastel rounded-2xl p-6 shadow-lg hover:shadow-xl transition pastel-overlay cursor-pointer">
+     <img alt="Latest post image placeholder" class="rounded-2xl border-2 border-pastel object-cover w-full h-56 mb-4" height="224" src="https://storage.googleapis.com/a1aa/image/c8214622-d05e-4e6a-a4db-8fac5b6a9ce5.jpg" width="400"/>
+     <h3 class="font-orbitron font-extrabold text-2xl tracking-wide mb-2 text-[#6b5b95]">
+      Another Post Title
+     </h3>
+     <p class="text-[#4b4b6a] text-base font-roboto-mono tracking-wide mb-4">
+      Another short excerpt or description of the post content goes here.
+     </p>
+     <button class="pastel-overlay self-start hover:bg-[#a3a0f6] transition">
+      READ DETAILS
+     </button>
+    </article>
+   </div>
+   <!-- Sidebar Widgets -->
+   <aside class="flex flex-col gap-8">
+    <!-- Categories Widget -->
+    <div class="widget">
+     <h5>Categories</h5>
+     <ul>
+      <li><a href="categories/art.html">Art</a></li>
+      <li><a href="categories/code.html">Code</a></li>
+      <li><a href="categories/writing.html">Writing</a></li>
+      <li><a href="categories/ai.html">AI</a></li>
+      <li><a href="categories/blog.html">Blog</a></li>
+     </ul>
+    </div>
+    <!-- Popular Tags Widget -->
+    <div class="widget">
+     <h5>Popular Tags</h5>
+     <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#Lifestyle</span>
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#Travel</span>
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#AI</span>
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#Fashion</span>
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#Culture</span>
+      <span class="px-3 py-1 rounded-full bg-[#a3a0f6] text-white text-xs cursor-pointer hover:bg-[#6b5b95] transition select-none">#Business</span>
+     </div>
+    </div>
+    <!-- Newsletter Widget -->
+    <div class="widget">
+     <h5>Newsletter</h5>
+     <p class="mb-3 text-sm text-[#6b5b95]">Subscribe to get the latest posts and updates.</p>
+     <form class="flex gap-2">
+      <input aria-label="Email address" class="flex-grow rounded-lg border border-[#a3a0f6] px-3 py-2 text-sm font-roboto-mono focus:outline-none focus:ring-2 focus:ring-[#6b5b95]" placeholder="Your email" type="email" required/>
+      <button class="pastel-overlay px-4 py-2 text-sm rounded-lg hover:bg-[#6b5b95] transition" type="submit">
+       Subscribe
+      </button>
+     </form>
+    </div>
+   </aside>
+  </section>
+  <div class="page-break mx-auto max-w-[1200px] mt-16"></div>
+  <!-- Footer -->
+  <footer class="max-w-[1200px] mx-auto py-6 px-6 text-center text-[#6b5b95] font-roboto-mono text-sm select-none">
+   &copy; 2024 PIXELWITCH. All rights reserved.
+  </footer>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Mobile submenu toggles
+    document.querySelectorAll('[data-toggle]').forEach(button => {
+      button.addEventListener('click', function() {
+        const submenuId = this.getAttribute('data-toggle');
+        const submenu = document.getElementById(submenuId);
+        if (submenu) submenu.classList.toggle('hidden');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Close mobile submenus when clicking outside
+    document.querySelectorAll('[data-toggle]').forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script>
+    // Smooth page transitions and history management
+    // Basic example using fetch and history API
+    // This is a simplified example; in a real Jekyll site, you'd use full page reloads or a SPA framework
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const url = link.getAttribute('href');
+          if (url && url !== window.location.pathname) {
+            fetch(url)
+              .then(response => response.text())
+              .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newContent = doc.querySelector('main') || doc.body;
+                document.body.innerHTML = newContent.innerHTML;
+                window.history.pushState({html: newContent.innerHTML}, '', url);
+                window.scrollTo({top: 0, behavior: 'smooth'});
+              })
+              .catch(() => {
+                window.location.href = url;
+              });
+          }
+        });
+      }
+    });
+
+    window.addEventListener('popstate', event => {
+      if (event.state && event.state.html) {
+        document.body.innerHTML = event.state.html;
+      } else {
+        location.reload();
+      }
+    });
+  </script>
+ </body>
+</html>

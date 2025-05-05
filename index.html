@@ -1,0 +1,432 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>PIXELWITCH - Full Site Widgets & Pages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    .pastel-overlay:hover {
+      background-color: #a3a0f6;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+    .page-break {
+      height: 8px;
+      margin: 3rem 0;
+      border-radius: 9999px;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      animation: movePattern 25s linear infinite;
+      border: 2px solid #a3a0f6;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    button, .btn-link {
+      @apply pastel-overlay px-5 py-3 text-sm rounded-lg;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      user-select: none;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    nav ul li > ul {
+      background: #e6d9ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px rgba(107, 91, 149, 0.3);
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #4b4b6a;
+    }
+    nav ul li > ul li a {
+      color: #4b4b6a;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li > ul li a:hover {
+      background-color: #a3a0f6;
+      color: #2a2a4a;
+    }
+    #mobile-menu {
+      scrollbar-width: thin;
+      scrollbar-color: #a3a0f6 #e6d9ff;
+    }
+    #mobile-menu::-webkit-scrollbar {
+      width: 8px;
+    }
+    #mobile-menu::-webkit-scrollbar-track {
+      background: #e6d9ff;
+    }
+    #mobile-menu::-webkit-scrollbar-thumb {
+      background-color: #a3a0f6;
+      border-radius: 10px;
+      border: 2px solid #e6d9ff;
+    }
+    a {
+      color: #6b5b95;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4a3a7a;
+      text-decoration: underline;
+    }
+    .widget {
+      background: #e6d9ffcc;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      color: #4b4b6a;
+      font-family: 'Roboto Mono', monospace;
+      margin-bottom: 1.5rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .widget:hover {
+      box-shadow: 0 0 20px #6b5b95cc;
+    }
+    .widget h5 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #6b5b95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .widget ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .widget ul li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #a3a0f6aa;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .widget ul li:last-child {
+      border-bottom: none;
+    }
+    .widget ul li:hover {
+      color: #4a3a7a;
+    }
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #6b5b95;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: #4b4b6a;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #6b5b95;
+      box-shadow: 0 0 8px #6b5b95;
+    }
+    form button {
+      width: auto;
+    }
+  </style>
+ </head>
+ <body>
+  <!-- Top Bar -->
+  <header class="max-w-[1200px] mx-auto p-4 flex flex-wrap justify-between items-center border-b border-black bg-[#d9e8ff]">
+    <a href="/subscribe.html" class="flex items-center gap-2 bg-[#f0c36d] border border-black text-black font-montserrat font-bold text-xs rounded-md py-2 px-4 hover:bg-yellow-400 transition">
+      <i class="fas fa-envelope"></i> SUBSCRIBE
+    </a>
+    <a href="index-13.html" class="flex items-center gap-2 bg-[#f0c36d] border border-black text-black font-montserrat font-bold text-xs rounded-md py-2 px-4 hover:bg-yellow-400 transition">
+      <i class="fas fa-laptop-code"></i> VIBE CODER
+    </a>
+    <a href="aboutme.html" class="text-center mx-auto sm:mx-0">
+      <h1 class="font-montserrat font-extrabold text-[28px] text-[#d9b25a] text-shadow leading-none tracking-wider">PIXELWITCH</h1>
+      <p class="text-[8px] font-bold tracking-widest text-black uppercase -mt-1">amrree.github.io</p>
+    </a>
+    <div class="flex gap-4">
+      <a href="aboutme.html" class="text-black hover:text-yellow-400">About</a>
+      <a href="Art.html" class="text-black hover:text-yellow-400">Art</a>
+      <a href="Writing.html" class="text-black hover:text-yellow-400">Writing</a>
+      <a href="lamacode.html" class="text-black hover:text-yellow-400">Code</a>
+      <a href="Categories.html" class="text-black hover:text-yellow-400">Categories</a>
+      <a href="Feedback.html" class="text-black hover:text-yellow-400">Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Categories Strip -->
+    <section class="max-w-[1200px] mx-auto mt-8 bg-[#b3c7ff] rounded-2xl border-4 border-pastel py-6 px-6 flex justify-between gap-4 overflow-x-auto relative z-10 shadow-md">
+      <a href="Art.html" class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+        <img alt="Art category image" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+        <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+          <h3>Art</h3>
+          <span class="text-xs">15 ARTICLES</span>
+        </div>
+      </a>
+      <a href="lamacode.html" class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+        <img alt="Code category image" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+        <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+          <h3>Code</h3>
+          <span class="text-xs">15 ARTICLES</span>
+        </div>
+      </a>
+      <a href="Writing.html" class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+        <img alt="Writing category image" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+        <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+          <h3>Writing</h3>
+          <span class="text-xs">15 ARTICLES</span>
+        </div>
+      </a>
+      <div class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+        <img alt="AI category image" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+        <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+          <h3>AI</h3>
+          <span class="text-xs">15 ARTICLES</span>
+        </div>
+      </div>
+      <a href="blogs.html" class="flex-shrink-0 bg-white border-4 border-pastel rounded-2xl flex items-center gap-4 py-3 px-6 min-w-[160px] cursor-pointer hover:bg-[#a3a0f6] transition pastel-overlay">
+        <img alt="Blog category image" class="w-14 h-14 rounded-xl object-cover border-2 border-pastel" height="56" src="https://storage.googleapis.com/a1aa/image/8a6ed67b-cd4f-467e-a984-663f358c65ce.jpg" width="56"/>
+        <div class="text-sm font-orbitron font-bold leading-none text-[#4b4b6a]">
+          <h3>Blog</h3>
+          <span class="text-xs">15 ARTICLES</span>
+        </div>
+      </a>
+    </section>
+    <!-- About Me Page -->
+   <section id="about-me" class="mb-16">
+    <h1 class="page-title">About Me</h1>
+    <div class="widget">
+     <h5>Introduction</h5>
+     <p>Hey there! I'm Pixelwitch, the digital wizard behind this magical realm of code and creativity. With a passion for full-stack development and a love for all things tech, I've crafted this digital playground to share my adventures in coding, art, and AI.</p>
+     <p>When I'm not conjuring up new projects with Python, JavaScript, and React, you'll find me exploring the intersection of art and technology. This site is my digital workshop - a place where I share tutorials, showcase my digital art, and dive into the latest tech trends.</p>
+     <p>From web development wizardry to AI experiments, I'm on a quest to create meaningful solutions through code. Join me on this journey as I share my thoughts, projects, and occasional coding mishaps. Whether you're a fellow developer, an art enthusiast, or just curious about the tech world, there's something here for everyone.</p>
+    </div>
+    <div class="widget">
+     <h5>Skills</h5>
+     <ul class="space-y-4">
+      <li>
+        <h6 class="font-orbitron text-[#6b5b95]">Web Development Wizardry</h6>
+        <p>Master of the full-stack realm, wielding Python, JavaScript, and React with precision. Crafting responsive, user-friendly applications that blend modern design with robust functionality.</p>
+        <p class="text-sm">Specialties: Full-stack development, Backend architecture, Frontend optimization</p>
+      </li>
+      <li>
+        <h6 class="font-orbitron text-[#6b5b95]">Digital Art & Illustration</h6>
+        <p>Transforming pixels into art and code into creativity. Exploring the digital canvas to create visuals that tell stories and enhance user experiences.</p>
+        <p class="text-sm">Focus: Digital illustration, UI/UX design, Visual storytelling</p>
+      </li>
+      <li>
+        <h6 class="font-orbitron text-[#6b5b95]">AI & Machine Learning Enthusiast</h6>
+        <p>Diving deep into the neural networks of tomorrow. Experimenting with AI to create innovative solutions and push the boundaries of what's possible with code.</p>
+        <p class="text-sm">Areas: Ollama AI, Machine learning, Data analysis</p>
+      </li>
+      <li>
+        <h6 class="font-orbitron text-[#6b5b95]">Creative Writing & Blogging</h6>
+        <p>Wordsmith and storyteller, crafting narratives that blend technical knowledge with engaging prose. Sharing insights through tutorials, articles, and creative writing.</p>
+        <p class="text-sm">Styles: Technical writing, Creative storytelling, Blogging</p>
+      </li>
+     </ul>
+    </div>
+    <div class="widget">
+     <h5>Contact Info</h5>
+     <p>Email: pixelwitch@example.com</p>
+     <p>Twitter: @pixelwitch</p>
+     <p>GitHub: github.com/amrree</p>
+    </div>
+   </section>
+   <div class="page-break"></div>
+   <!-- Contact Me Page -->
+   <section id="contact-me" class="mb-16">
+    <h1 class="page-title">Contact Me</h1>
+    <form class="widget max-w-xl mx-auto" action="#" method="POST" novalidate>
+     <label for="name" class="block mb-1 font-bold text-[#6b5b95]">Name</label>
+     <input type="text" id="name" name="name" placeholder="Your full name" required/>
+     <label for="email" class="block mb-1 font-bold text-[#6b5b95]">Email</label>
+     <input type="email" id="email" name="email" placeholder="Your email address" required/>
+     <label for="message" class="block mb-1 font-bold text-[#6b5b95]">Message</label>
+     <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+     <button type="submit" class="pastel-overlay hover:bg-[#6b5b95] transition">Send Message</button>
+    </form>
+   </section>
+   <div class="page-break"></div>
+   <!-- Category Pages Widgets -->
+   <section id="categories" class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="widget">
+     <h5><a href="Art.html" class="text-[#6b5b95] hover:text-[#a3a0f6]">Art</a></h5>
+     <p>Explore tutorials, galleries, and inspiration for digital and traditional art.</p>
+     <a href="Art.html" class="pastel-overlay mt-3">Explore Art</a>
+    </div>
+    <div class="widget">
+     <h5><a href="lamacode.html" class="text-[#6b5b95] hover:text-[#a3a0f6]">Code</a></h5>
+     <p>Discover tutorials, projects, and resources for web development and programming.</p>
+     <a href="lamacode.html" class="pastel-overlay mt-3">Explore Code</a>
+    </div>
+    <div class="widget">
+     <h5><a href="Writing.html" class="text-[#6b5b95] hover:text-[#a3a0f6]">Writing</a></h5>
+     <p>Read creative writing, poetry, and storytelling content.</p>
+     <a href="Writing.html" class="pastel-overlay mt-3">Explore Writing</a>
+    </div>
+
+    <div class="widget">
+     <h5><a href="Writing.html" class="text-[#6b5b95] hover:text-[#a3a0f6]">Technical Writing</a></h5>
+     <p>Learn about technical documentation, API writing, and developer guides.</p>
+     <a href="Writing.html" class="pastel-overlay mt-3">Explore Technical Writing</a>
+    </div>
+    <div class="widget">
+     <h5>AI</h5>
+     <p>Discover articles and projects about artificial intelligence and machine learning.</p>
+     <button class="pastel-overlay mt-3">Explore AI</button>
+    </div>
+    <div class="widget col-span-full">
+     <h5>Blog</h5>
+     <p>Stay updated with the latest posts, news, and personal insights.</p>
+     <button class="pastel-overlay mt-3">Visit Blog</button>
+    </div>
+   </section>
+   <div class="page-break"></div>
+   <!-- User Feedback Page -->
+   <section id="user-feedback" class="mb-16 max-w-xl mx-auto">
+    <h1 class="page-title">User Feedback</h1>
+    <form class="widget" action="#" method="POST" novalidate>
+     <label for="username" class="block mb-1 font-bold text-[#6b5b95]">Name</label>
+     <input type="text" id="username" name="username" placeholder="Your name" required/>
+     <label for="useremail" class="block mb-1 font-bold text-[#6b5b95]">Email</label>
+     <input type="email" id="useremail" name="useremail" placeholder="Your email" required/>
+     <label for="rating" class="block mb-1 font-bold text-[#6b5b95]">Rating</label>
+     <select id="rating" name="rating" class="mb-4 p-2 rounded border border-[#a3a0f6]" required>
+      <option value="" disabled selected>Select rating</option>
+      <option value="5">5 - Excellent</option>
+      <option value="4">4 - Very Good</option>
+      <option value="3">3 - Good</option>
+      <option value="2">2 - Fair</option>
+      <option value="1">1 - Poor</option>
+     </select>
+     <label for="feedback" class="block mb-1 font-bold text-[#6b5b95]">Feedback</label>
+     <textarea id="feedback" name="feedback" rows="5" placeholder="Your feedback here..." required></textarea>
+     <button type="submit" class="pastel-overlay hover:bg-[#6b5b95] transition mt-4">Submit Feedback</button>
+    </form>
+    </section>
+
+   </main>
+  <footer class="max-w-[1200px] mx-auto py-6 px-6 text-center text-[#6b5b95] font-roboto-mono text-sm select-none">
+   &copy; 2024 PIXELWITCH. All rights reserved.
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+   // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    if(mobileMenuButton && mobileMenu && mobileMenuClose) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Smooth page transitions and history management (simplified)
+    document.querySelectorAll('a[href]').forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const url = link.getAttribute('href');
+          if (url && url !== window.location.pathname) {
+            fetch(url)
+              .then(response => response.text())
+              .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newContent = doc.querySelector('main') || doc.body;
+                document.body.innerHTML = newContent.innerHTML;
+                window.history.pushState({html: newContent.innerHTML}, '', url);
+                window.scrollTo({top: 0, behavior: 'smooth'});
+              })
+              .catch(() => {
+                window.location.href = url;
+              });
+          }
+        });
+      }
+    });
+
+    window.addEventListener('popstate', event => {
+      if (event.state && event.state.html) {
+        document.body.innerHTML = event.state.html;
+      } else {
+        location.reload();
+      }
+    });
+  </script>
+ </body>
+</html>

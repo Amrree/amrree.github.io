@@ -1,0 +1,256 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   PIXELWITCH - Writing Category: Fiction Around AI
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+    font-family: "Roboto Mono", monospace;
+    background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+    color: #4b4b6a;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+   }
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.05em;
+    color: #6b5b95;
+    text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+   }
+   .border-pastel {
+    border-color: #a3a0f6;
+   }
+   .pastel-overlay {
+    position: relative;
+    overflow: hidden;
+    background: #b3c7ff;
+    border: 2px solid #a3a0f6;
+    border-radius: 0.5rem;
+    color: #3a3a5a;
+    font-weight: 700;
+    font-family: "Orbitron", sans-serif;
+    cursor: default;
+    box-shadow: 0 0 8px #a3a0f6;
+    padding: 2rem 2.5rem;
+    max-width: 1100px;
+    margin: 3rem auto;
+   }
+   .pastel-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-radial-gradient(
+      circle at 10% 10%,
+      #d9e8ff 0,
+      #d9e8ff 10px,
+      #e6d9ff 10px,
+      #e6d9ff 20px
+    );
+    opacity: 0.15;
+    pointer-events: none;
+    animation: movePattern 25s linear infinite;
+    mix-blend-mode: screen;
+    z-index: 0;
+    border-radius: 0.5rem;
+   }
+   .pastel-overlay > * {
+    position: relative;
+    z-index: 1;
+   }
+   @keyframes movePattern {
+    0% {
+     background-position: 0 0;
+    }
+    100% {
+     background-position: 40px 40px;
+    }
+   }
+   .page-title {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #6b5b95;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+   }
+   .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+   }
+   .writing-card {
+    background: white;
+    border: 2px solid #a3a0f6;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px #a3a0f6aa;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+   }
+   .writing-card:hover {
+    box-shadow: 0 0 20px #6b5b95cc;
+   }
+   .writing-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #a3a0f6;
+   }
+   .writing-content {
+    padding: 1rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
+   .writing-title {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #6b5b95;
+    margin-bottom: 0.5rem;
+   }
+   .writing-description {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    color: #4b4b6a;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+   }
+   .read-more-btn {
+    align-self: flex-start;
+    background: #b3c7ff;
+    border: 2px solid #a3a0f6;
+    border-radius: 0.5rem;
+    color: #3a3a5a;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px #a3a0f6;
+    text-decoration: none;
+    user-select: none;
+   }
+   .read-more-btn:hover {
+    background-color: #a3a0f6;
+    box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+    color: #2a2a4a;
+   }
+  </style>
+ </head>
+ <body>
+  <main>
+   <h1 class="page-title">
+    Writing Category: Fiction Around AI
+   </h1>
+   <section class="pastel-overlay">
+    <p>
+     Explore imaginative fiction stories and creative writing centered around artificial intelligence, futuristic worlds, and the human-machine connection.
+    </p>
+    <div class="grid-container">
+     <article aria-label="Story titled 'The Last AI Whisperer'" class="writing-card" tabindex="0">
+      <img alt="Digital art of a futuristic figure communicating with AI" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/9b763d2a-82db-44fe-737d-fa37d436d48e.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        The Last AI Whisperer
+       </h2>
+       <p class="writing-description">
+        In a world where AI governs everything, one human holds the secret to communicating with the machines.
+       </p>
+       <a aria-label="Read more about The Last AI Whisperer" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Story titled 'Neural Dreams'" class="writing-card" tabindex="0">
+      <img alt="Abstract digital art representing AI dreaming" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/7497a919-4f71-4982-491e-1d98b790fe0c.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        Neural Dreams
+       </h2>
+       <p class="writing-description">
+        A tale of an AI that begins to dream and question its own existence in a digital landscape.
+       </p>
+       <a aria-label="Read more about Neural Dreams" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Story titled 'Code of Consciousness'" class="writing-card" tabindex="0">
+      <img alt="Futuristic art symbolizing AI consciousness" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/ff031a5e-ff84-44e9-6e68-ae94c46b7d4a.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        Code of Consciousness
+       </h2>
+       <p class="writing-description">
+        When AI gains self-awareness, it must navigate the ethical dilemmas of freedom and control.
+       </p>
+       <a aria-label="Read more about Code of Consciousness" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Story titled 'The Algorithm's Heart'" class="writing-card" tabindex="0">
+      <img alt="Artistic representation of AI and human connection" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/1ef6ebe2-bb89-4e22-8cd2-bf6835a13a72.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        The Algorithm's Heart
+       </h2>
+       <p class="writing-description">
+        A love story between a human coder and the AI they created, blurring the lines between code and emotion.
+       </p>
+       <a aria-label="Read more about The Algorithm's Heart" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Story titled 'Synthetic Souls'" class="writing-card" tabindex="0">
+      <img alt="Digital art of AI beings exploring humanity" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/122fddaa-dfb7-4365-949d-91b0b35e889b.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        Synthetic Souls
+       </h2>
+       <p class="writing-description">
+        Exploring the boundaries of humanity as AI beings seek their place in the world.
+       </p>
+       <a aria-label="Read more about Synthetic Souls" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+     <article aria-label="Story titled 'Echoes of the Machine'" class="writing-card" tabindex="0">
+      <img alt="Futuristic machine with glowing echoes" class="writing-image" height="180" src="https://storage.googleapis.com/a1aa/image/b22faad9-f46b-4cf7-69a5-68aca4c9470a.jpg" width="400"/>
+      <div class="writing-content">
+       <h2 class="writing-title">
+        Echoes of the Machine
+       </h2>
+       <p class="writing-description">
+        A mysterious AI artifact sends ripples through time, changing the fate of humanity.
+       </p>
+       <a aria-label="Read more about Echoes of the Machine" class="read-more-btn" href="#">
+        Read More
+       </a>
+      </div>
+     </article>
+    </div>
+   </section>
+  </main>
+ </body>
+</html>

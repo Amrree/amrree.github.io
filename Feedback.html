@@ -1,0 +1,210 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>PIXELWITCH - Fun User Feedback & Mock Interview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+      color: #4b4b6a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.05em;
+      color: #6b5b95;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    .border-pastel {
+      border-color: #a3a0f6;
+    }
+    .pastel-overlay {
+      position: relative;
+      overflow: hidden;
+      background: #b3c7ff;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.5rem;
+      color: #3a3a5a;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    .pastel-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: movePattern 25s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 0;
+      border-radius: 0.5rem;
+    }
+    .pastel-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+    .pastel-overlay:hover {
+      background-color: #a3a0f6;
+      box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+      color: #2a2a4a;
+    }
+    .page-break {
+      height: 8px;
+      margin: 3rem 0;
+      border-radius: 9999px;
+      background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+      opacity: 0.15;
+      animation: movePattern 25s linear infinite;
+      border: 2px solid #a3a0f6;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px #a3a0f6;
+    }
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    main {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #6b5b95;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+    }
+    label {
+      font-weight: 700;
+      color: #6b5b95;
+      display: block;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.05em;
+      font-family: 'Orbitron', sans-serif;
+    }
+    input[type="text"], input[type="email"], select, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #a3a0f6;
+      border-radius: 0.75rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: #4b4b6a;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #6b5b95;
+      box-shadow: 0 0 8px #6b5b95;
+    }
+    button {
+      width: auto;
+      margin-top: 0.5rem;
+    }
+    .joke {
+      font-style: italic;
+      color: #4a3a7a;
+      margin: 0.5rem 0 1.5rem 0;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+    }
+    .mock-interview {
+      background: #e6d9ffcc;
+      border: 2px solid #a3a0f6;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px #a3a0f6aa;
+      color: #4b4b6a;
+      font-family: 'Roboto Mono', monospace;
+      margin-top: 2rem;
+    }
+    .mock-interview h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #6b5b95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .mock-interview p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .mock-interview .question {
+      font-weight: 700;
+      color: #6b5b95;
+      margin-top: 1rem;
+    }
+    .mock-interview .answer {
+      margin-left: 1rem;
+      font-style: italic;
+      color: #4a3a7a;
+    }
+  </style>
+ </head>
+ <body>
+  <main>
+   <h1 class="page-title">User Feedback & Fun Questions</h1>
+   <form action="#" method="POST" class="pastel-overlay p-6 rounded-lg shadow-lg" novalidate>
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required/>
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required/>
+    <label for="rating">How would you rate this site?</label>
+    <select id="rating" name="rating" required>
+     <option value="" disabled selected>Select rating</option>
+     <option value="5">5 - Absolutely amazing!</option>
+     <option value="4">4 - Pretty good</option>
+     <option value="3">3 - Meh, it's okay</option>
+     <option value="2">2 - Needs improvement</option>
+     <option value="1">1 - What did I just visit?</option>
+    </select>
+    <label for="fun-vegetable">Silly Question: If you were a vegetable, which one would you be?</label>
+    <input type="text" id="fun-vegetable" name="fun-vegetable" placeholder="E.g. A cool cucumber" required/>
+    <label for="fun-knowledge">Fun General Knowledge Question: What color do you get when you mix blue and yellow?</label>
+    <select id="fun-knowledge" name="fun-knowledge" required>
+     <option value="" disabled selected>Select answer</option>
+     <option value="green">Green</option>
+     <option value="purple">Purple</option>
+     <option value="orange">Orange</option>
+     <option value="red">Red</option>
+    </select>
+    <label for="fun-riddle">Fun Riddle: What has keys but can't open locks?</label>
+    <input type="text" id="fun-riddle" name="fun-riddle" placeholder="Your answer here" required/>
+    <p class="joke">Why did the computer go to the doctor? Because it had a virus! 🤖</p>
+    <label for="feedback">Your Feedback</label>
+    <textarea id="feedback" name="feedback" rows="5" placeholder="Tell us what you think..." required></textarea>
+    <button type="submit" class="pastel-overlay hover:bg-[#6b5b95] transition">Submit Feedback</button>
+   </form>
+   <div class="page-break"></div>
+   <section class="mock-interview">
+    <h3>Funny Fake Mock Interview</h3>
+    <p><span class="question">Interviewer:</span> So, why do you want to work here?</p>
+    <p class="answer">Candidate: Because my plants told me this is the coolest place to grow!</p>
+    <p><span class="question">Interviewer:</span> What’s your greatest strength?</p>
+    <p class="answer">Candidate: I can make a mean cup of coffee and tell terrible jokes.</p>
+    <p><span class="question">Interviewer:</span> And your greatest weakness?</p>
+    <p class="answer">Candidate: I sometimes talk to my computer like it’s a person. It listens better than most humans.</p>
+    <p><span class="question">Interviewer:</span> If you were an animal, what would you be?</p>
+    <p class="answer">Candidate: A sloth. Because naps are important and I’m very good at them.</p>
+    <p><span class="question">Interviewer:</span> Last question: Why did the scarecrow get promoted?</p>
+    <p class="answer">Candidate: Because he was outstanding in his field! 🌾😄</p>
+   </section>
+  </main>
+ </body>
+</html>
