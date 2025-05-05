@@ -4,40 +4,110 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PIXELWITCH - Blog</title>
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(135deg, #d9e8ff, #e6d9ff);
+            color: #4b4b6a;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.05em;
+            color: #6b5b95;
+            text-shadow: 1px 1px 2px rgba(107, 91, 149, 0.3);
+        }
+        .pastel-overlay {
+            position: relative;
+            overflow: hidden;
+            background: #b3c7ff;
+            border: 2px solid #a3a0f6;
+            border-radius: 0.5rem;
+            color: #3a3a5a;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 8px #a3a0f6;
+        }
+        .pastel-overlay::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-radial-gradient(circle at 10% 10%, #d9e8ff 0, #d9e8ff 10px, #e6d9ff 10px, #e6d9ff 20px);
+            opacity: 0.15;
+            pointer-events: none;
+            animation: movePattern 25s linear infinite;
+            mix-blend-mode: screen;
+            z-index: 0;
+            border-radius: 0.5rem;
+        }
+        .pastel-overlay > * {
+            position: relative;
+            z-index: 1;
+        }
+        .pastel-overlay:hover {
+            background-color: #a3a0f6;
+            box-shadow: 0 0 15px #6b5b95, 0 0 25px #6b5b95;
+            color: #2a2a4a;
+        }
+        @keyframes movePattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+        .widget {
+            background: #e6d9ffcc;
+            border: 2px solid #a3a0f6;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 0 10px #a3a0f6aa;
+            color: #4b4b6a;
+            font-family: 'Roboto Mono', monospace;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .widget:hover {
+            box-shadow: 0 0 20px #6b5b95cc;
+        }
+        .widget h5 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        a {
+            color: #6b5b95;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #4a3a7a;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <main class="max-w-4xl mx-auto p-6">
         <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
         <div class="space-y-8">
-            <article class="p-6 bg-white rounded-lg shadow">
+            <article class="widget">
                 <h2 class="text-2xl font-bold mb-4"><a href="test-blog-post.html">Test Blog Post</a></h2>
                 <div class="text-gray-600">
-                    <p>Read more in <a href="test-blog-post.html" class="text-blue-600 hover:text-blue-800">Test Blog Post</a></p>
+                    <p>Read more in <a href="test-blog-post.html">Test Blog Post</a></p>
                 </div>
             </article>
-            <article class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-4"><a href="pixelwitch-categories.html">PIXELWITCH - Categories</a></h2>
+            <article class="widget">
+                <h2 class="text-2xl font-bold mb-4"><a href="pixelwitch---categories.html">PIXELWITCH - Categories</a></h2>
                 <div class="text-gray-600">
-                    <p>Read more in <a href="pixelwitch-categories.html" class="text-blue-600 hover:text-blue-800">PIXELWITCH - Categories</a></p>
+                    <p>Read more in <a href="pixelwitch---categories.html">PIXELWITCH - Categories</a></p>
                 </div>
             </article>
-            <article class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-4"><a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></h2>
+            <article class="widget">
+                <h2 class="text-2xl font-bold mb-4"><a href="ollama-wrangling:-the-art-of-taming-your-local-ai-beast.html">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></h2>
                 <div class="text-gray-600">
-                    <p>Read more in <a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html" class="text-blue-600 hover:text-blue-800">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></p>
-                </div>
-            </article>
-            <article class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-4"><a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></h2>
-                <div class="text-gray-600">
-                    <p>Read more in <a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html" class="text-blue-600 hover:text-blue-800">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></p>
-                </div>
-            </article>
-            <article class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-4"><a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></h2>
-                <div class="text-gray-600">
-                    <p>Read more in <a href="ollama-wrangling-the-art-of-taming-your-local-ai-beast.html" class="text-blue-600 hover:text-blue-800">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></p>
+                    <p>Read more in <a href="ollama-wrangling:-the-art-of-taming-your-local-ai-beast.html">Ollama Wrangling: The Art of Taming Your Local AI Beast</a></p>
                 </div>
             </article>
         </div>
