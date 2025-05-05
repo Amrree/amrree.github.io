@@ -345,7 +345,7 @@
     <div class="widget col-span-full">
      <h5>Blog</h5>
      <p>Stay updated with the latest posts, news, and personal insights.</p>
-     <a href="blogs.html" class="pastel-overlay mt-3">Visit Blog</a>
+     <a href="blogs.html" class="pastel-overlay mt-3" data-no-transition="true">Visit Blog</a>
     </div>
    </section>
    <div class="page-break"></div>
@@ -397,7 +397,7 @@
 
     // Smooth page transitions and history management (simplified)
     document.querySelectorAll('a[href]').forEach(link => {
-      if (link.hostname === window.location.hostname) {
+      if (link.hostname === window.location.hostname && !link.dataset.noTransition) {
         link.addEventListener('click', e => {
           e.preventDefault();
           const url = link.getAttribute('href');
