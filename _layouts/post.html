@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<article class="max-w-[1200px] mx-auto mt-8">
+  <header class="mb-6">
+    <h1 class="font-montserrat font-extrabold text-2xl text-black mb-2 border-b border-black pb-1">{{ page.title }}</h1>
+    <div class="flex items-center text-[10px] font-bold text-black mb-3 gap-2 flex-wrap">
+      <div class="flex items-center gap-1">
+        <i class="fas fa-clock text-[10px]">{{ page.date | date: "%d %b, %Y" }}</i>
+      </div>
+      <span class="border-l border-black h-3"></span>
+      <div class="flex items-center gap-1">
+        <i class="fas fa-user"></i>
+        <span>BY PIXELWITCH</span>
+      </div>
+      <span class="border-l border-black h-3"></span>
+      <div>{{ page.category }}</div>
+    </div>
+    <h1 class="font-montserrat font-extrabold text-2xl leading-tight mb-4 text-black">
+      {{ page.title }}
+    </h1>
+  </header>
+
+  {{ content }}
+
+  <footer class="mt-8 border-t border-black pt-4">
+    <div class="flex justify-between">
+      {% if page.previous %}
+      <a href="{{ page.previous.url }}" class="flex items-center gap-2 hover:text-yellow-400">
+        <i class="fas fa-arrow-left"></i> PREV POST
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a href="{{ page.next.url }}" class="flex items-center gap-2 hover:text-yellow-400">
+        NEXT POST <i class="fas fa-arrow-right"></i>
+      </a>
+      {% endif %}
+    </div>
+  </footer>
+</article>

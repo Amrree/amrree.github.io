@@ -1,0 +1,81 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      background-color: #fff4cc;
+    }
+    .font-montserrat {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-2 sm:p-4 md:p-6 lg:p-8">
+  <!-- Top bar -->
+  <header class="max-w-[1200px] mx-auto">
+    <div class="flex justify-between items-center mb-2">
+      <button class="flex items-center gap-2 bg-[#f0c36d] text-black font-montserrat font-bold text-xs rounded-md py-2 px-4 border border-black">
+        <i class="fas fa-envelope"></i>
+        SUBSCRIBE
+      </button>
+      <div class="text-center">
+        <h1 class="font-montserrat font-extrabold text-[28px] leading-none tracking-wider text-[#d9b25a]" style="text-shadow: 1px 1px 0 #000, 2px 2px 0 #000">
+          {{ site.title }}
+        </h1>
+        <p class="text-[8px] font-bold tracking-widest text-black uppercase -mt-1">
+          {{ site.description }}
+        </p>
+      </div>
+      <nav class="flex gap-3">
+        <button aria-label="Search" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs">
+          <i class="fas fa-search"></i>
+        </button>
+        <button aria-label="Cart" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+        <button aria-label="Menu" class="w-8 h-8 rounded-full bg-[#fff4cc] border border-black flex items-center justify-center text-black text-xs">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+    <nav aria-label="Primary navigation" class="flex flex-wrap gap-4 text-black font-bold text-xs border-t border-black pt-2 pb-3">
+      <a href="{{ '/' | relative_url }}" class="flex items-center gap-1">
+        <span>HOME</span>
+        <i class="fas fa-caret-down text-[10px]"></i>
+      </a>
+      <a href="{{ '/projects' | relative_url }}" class="flex items-center gap-1">
+        <span>PROJECTS</span>
+        <i class="fas fa-caret-down text-[10px]"></i>
+      </a>
+      <a href="{{ '/writing' | relative_url }}" class="flex items-center gap-1">
+        <span>WRITING</span>
+        <i class="fas fa-caret-down text-[10px]"></i>
+      </a>
+      <a href="{{ '/about' | relative_url }}" class="flex items-center gap-1">
+        <span>ABOUT</span>
+        <i class="fas fa-caret-down text-[10px]"></i>
+      </a>
+    </nav>
+  </header>
+
+  <main class="max-w-[1200px] mx-auto mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    {{ content }}
+  </main>
+
+  <footer class="bg-black text-white py-8">
+    <div class="max-w-[1200px] mx-auto text-center">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

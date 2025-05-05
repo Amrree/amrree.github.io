@@ -1,20 +1,68 @@
 title: Amre PixelWitch
 email: your-email@example.com
-description: > # this means to ignore newlines until "baseurl:"
+description: >
   An Irish woman living at the intersection of code and creativity.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://amre-pixelwitch.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: "https://amrree.github.io"
 twitter_username: your-twitter-username
-github_username:  Amrree
+github_username: Amrree
 
 # Build settings
-theme: jekyll-theme-midnight
-gem 'jekyll-feed'
-gem 'jekyll-seo-tag'
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# RSS Feed
+rss:
+  path: feed.xml
+  title: Amre PixelWitch
+  description: An Irish woman living at the intersection of code and creativity
+  author: Amre PixelWitch
+  email: your-email@example.com
 
 # Theme settings
-show_excerpts: true # set to false to remove excerpts on the homepage
-minimal_mistakes_skin: "midnight" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+theme: jekyll-theme-hacker
+
+# Navigation
+nav:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Art
+    url: /art/
+  - title: Coding
+    url: /coding/
+  - title: Writing
+    url: /writing/
+  - title: Blog
+    url: /blog/
+
+# Theme settings
+markdown_ext: markdown,mkdown,mkdn,mkd,md
+highlighter: rouge
+permalink: /:title/
+paginate: 5
+paginate_path: /page:num/
+
+# Glamer-style theme settings
+theme_color: '#2d3436'
+accent_color: '#f8f9fa'
+font_family: 'Open Sans'
+header_height: '80px'
+sidebar_width: '300px'
+
+# Profile Picture
+profile:
+  picture: /assets/images/profile/profile.jpg
+  alt: Amre PixelWitch
+  width: 200
+  height: 200
+  social:
+    twitter: your-twitter-username
+    github: Amrree
+    linkedin: your-linkedin-username
+    instagram: your-instagram-username
 
 # Collections
 markdown: kramdown
@@ -24,3 +72,31 @@ exclude:
   - README.md
   - LICENSE
   - CNAME
+
+# Additional settings
+show_excerpts: true
+minimal_mistakes_skin: "default"
+header_pages:
+  - about.md
+  - art.md
+  - coding.md
+  - writing.md
+  - blog.md
+
+# Navigation
+header:
+  nav_links:
+    - text: Home
+      url: /
+    - text: About
+      url: /about/
+    - text: Art
+      url: /art/
+    - text: Coding
+      url: /coding/
+    - text: Writing
+      url: /writing/
+    - text: Blog
+      url: /blog/
+    - text: RSS Feed
+      url: /feed.xml

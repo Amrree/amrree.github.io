@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .category-pill {
+      @apply flex justify-between items-center border border-black rounded-full overflow-hidden;
+    }
+    
+    .category-pill span {
+      @apply block px-4 py-1 text-xs font-bold;
+    }
+    
+    .category-pill .bg-yellow {
+      @apply bg-[#f0c36d] text-black rounded-r-full px-4 py-1;
+    }
+    
+    .tag-pill {
+      @apply border border-black rounded-full bg-[#fef5d3] text-[9px] font-bold px-3 py-1;
+    }
+  </style>
+</head>
+<body class="bg-[#fef5d3]">
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <nav class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Amre PixelWitch</h1>
+        <div class="hidden md:flex space-x-8">
+          <a href="/" class="text-black hover:text-[#f0c36d]">Home</a>
+          <a href="/about" class="text-black hover:text-[#f0c36d]">About</a>
+          <a href="/projects" class="text-black hover:text-[#f0c36d]">Projects</a>
+          <a href="/writing" class="text-black hover:text-[#f0c36d]">Writing</a>
+        </div>
+        <button class="md:hidden" onclick="toggleMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-4 pt-20">
+    {{ content }}
+  </main>
+
+  <footer class="bg-black text-white py-8">
+    <div class="container mx-auto px-4">
+      <p class="text-center">&copy; {{ 'now' | date: "%Y" }} Amre PixelWitch. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.mobile-menu').classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

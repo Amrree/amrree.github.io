@@ -1,0 +1,90 @@
+tags:
+  - name: "AI"
+    description: "Artificial Intelligence, Machine Learning, and Deep Learning"
+    color: "#a3a0f6"
+    posts: 50
+    related: ["Machine Learning", "Python", "Data Science"]
+
+  - name: "Python"
+    description: "Python programming, libraries, and frameworks"
+    color: "#3776ab"
+    posts: 45
+    related: ["AI", "Web Development", "Data Science"]
+
+  - name: "JavaScript"
+    description: "Frontend development, frameworks, and libraries"
+    color: "#f7df1e"
+    posts: 38
+    related: ["React", "Web Development", "Frontend"]
+
+  - name: "React"
+    description: "React.js development and best practices"
+    color: "#61dafb"
+    posts: 32
+    related: ["JavaScript", "Web Development", "Frontend"]
+
+  - name: "Web Development"
+    description: "Full-stack development and web technologies"
+    color: "#6b5b95"
+    posts: 40
+    related: ["Python", "JavaScript", "React"]
+
+  - name: "Data Science"
+    description: "Data analysis, visualization, and machine learning"
+    color: "#2d99ff"
+    posts: 28
+    related: ["AI", "Python", "Statistics"]
+
+  - name: "Writing"
+    description: "Creative writing, technical writing, and storytelling"
+    color: "#f4c2c2"
+    posts: 25
+    related: ["Creativity", "Storytelling", "Content Creation"]
+
+  - name: "Code Tutorials"
+    description: "Programming tutorials and how-tos"
+    color: "#80bdff"
+    posts: 35
+    related: ["Python", "JavaScript", "Web Development"]
+
+  - name: "AI Ethics"
+    description: "Ethical considerations in AI development"
+    color: "#ff6b6b"
+    posts: 18
+    related: ["AI", "Philosophy", "Technology"]
+
+  - name: "Open Source"
+    description: "Open source projects and contributions"
+    color: "#f0c36d"
+    posts: 22
+    related: ["GitHub", "Community", "Development"]
+
+  - name: "Theology"
+    description: "Intersections of technology and faith"
+    color: "#a8e6cf"
+    posts: 15
+    related: ["AI Ethics", "Philosophy", "Society"]
+
+  - name: "Dyslexia Tech"
+    description: "Technology solutions for dyslexia"
+    color: "#d4a5a5"
+    posts: 12
+    related: ["AI", "Accessibility", "Education"]
+
+  - name: "Creativity"
+    description: "Creative processes and inspiration"
+    color: "#ffd3b6"
+    posts: 20
+    related: ["Writing", "Art", "Innovation"]
+
+  - name: "DevOps"
+    description: "Development and operations practices"
+    color: "#45b7d1"
+    posts: 18
+    related: ["Web Development", "Automation", "Infrastructure"]
+
+  - name: "Cloud Computing"
+    description: "Cloud technologies and services"
+    color: "#87ceeb"
+    posts: 16
+    related: ["Web Development", "Infrastructure", "AWS"]

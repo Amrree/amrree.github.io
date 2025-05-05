@@ -1,0 +1,52 @@
+bio:
+  name: "Amrree"
+  pronouns: "she/her"
+  location: "Ireland"
+  email: "pixelwitch@mailfence.com"
+  website: "amrree.github.io"
+  bio: >
+    Irish lass turned code wizard, mother of chaos, and AI whisperer. When I'm not wrangling code, I'm probably chasing after my four-legged furball or losing myself in a good book. 
+    
+    Knock knock! Who's there? The AI that helps me spell! (It's true, my dyslexia and I are best friends with AI tech.)
+  
+  summary: >
+    Full-stack developer with a theology degree and a penchant for creating user-friendly applications that make life easier for everyone. 
+    
+    When I'm not coding, you'll find me:
+    - Brewing a perfect cup of tea
+    - Snuggling with my dog
+    - Debating the finer points of theology
+    - Learning new programming languages
+    - Laughing at my own jokes
+    
+    Fun fact: I once used AI to write a sermon about technology and faith. It was a hit... with the computers at least!
+  
+  expertise:
+    - "Web Development"
+    - "Backend Development"
+    - "Frontend Development"
+    - "DevOps"
+    - "Cloud Computing"
+    - "AI Integration"
+    - "Theological Tech"
+  
+  skills:
+    - "Python"
+    - "JavaScript"
+    - "React"
+    - "Node.js"
+    - "Docker"
+    - "AWS"
+    - "Git"
+    - "AI/ML"
+    - "Theology"
+    - "Knock-Knock Jokes"
+    
+  interests:
+    - "AI and Machine Learning"
+    - "Theology and Technology"
+    - "Reading"
+    - "Dog Training"
+    - "Open Source Contributions"
+    - "Tea Brewing"
+    - "Bad Puns"

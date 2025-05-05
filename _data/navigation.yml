@@ -1,0 +1,75 @@
+main:
+  - title: HOME
+    url: /
+    dropdown:
+      - title: Home 1
+        url: /
+      - title: Home 2
+        url: /index2.html
+  - title: POST TYPE
+    url: /post-type.html
+    dropdown:
+      - title: Tutorial
+        url: /post-type/tutorial.html
+      - title: Opinion
+        url: /post-type/opinion.html
+  - title: CATEGORIES
+    url: /categories.html
+    dropdown:
+      - title: Art
+        url: /categories/art.html
+      - title: Code
+        url: /categories/code.html
+      - title: Writing
+        url: /categories/writing.html
+      - title: AI
+        url: /categories/ai.html
+      - title: Blog
+        url: /categories/blog.html
+  - title: BUY ME A COFFEE
+    url: /buy-me-a-coffee.html
+    class: pastel-overlay
+  - title: CONTACT ME
+    url: /contact.html
+  - title: BIO
+    url: /bio.html
+  - title: BLOG
+    url: /blog.html
+
+mobile:
+  - title: HOME
+    url: /
+    dropdown:
+      - title: Home 1
+        url: /
+      - title: Home 2
+        url: /index2.html
+  - title: POST TYPE
+    url: /post-type.html
+    dropdown:
+      - title: Tutorial
+        url: /post-type/tutorial.html
+      - title: Opinion
+        url: /post-type/opinion.html
+  - title: CATEGORIES
+    url: /categories.html
+    dropdown:
+      - title: Art
+        url: /categories/art.html
+      - title: Code
+        url: /categories/code.html
+      - title: Writing
+        url: /categories/writing.html
+      - title: AI
+        url: /categories/ai.html
+      - title: Blog
+        url: /categories/blog.html
+  - title: BUY ME A COFFEE
+    url: /buy-me-a-coffee.html
+    class: pastel-overlay
+  - title: CONTACT ME
+    url: /contact.html
+  - title: BIO
+    url: /bio.html
+  - title: BLOG
+    url: /blog.html
